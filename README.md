@@ -18,8 +18,8 @@ The Zoho Creator MCP server acts as a bridge between AI assistants that implemen
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/Kamal157/zoho-creator-mpc.git
-cd zoho-creator-mpc
+git clone https://github.com/kamal157/zoho-creator-mcp.git
+cd zoho-creator-mcp
 ```
 
 ### Install Dependencies
