@@ -79,7 +79,7 @@ This runs the server using ts-node for development purposes.
 
 ```bash
 npm run build
-npm run stat
+npm run start
 ```
 
 The build command compiles TypeScript to JavaScript in the `dist` directory, and start runs the compiled code.
