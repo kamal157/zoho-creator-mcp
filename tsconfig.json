@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Or a newer version like ES2022
+    "module": "NodeNext", // Crucial for ES Modules with Node.js
+    "moduleResolution": "NodeNext", // Works well with NodeNext module system
+    "esModuleInterop": true, // Allows default imports from CommonJS modules
+    "forceConsistentCasingInFileNames": true,
+    "strict": true, // Enables all strict type-checking options
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "outDir": "./dist", // Where to output JavaScript files for the 'build' script
+    "rootDir": "./src", // Specify the root directory of input files
+    "resolveJsonModule": true // Allows importing JSON files
+  },
+  "include": ["src/**/*.ts"], // Which files to include in compilation
+  "exclude": ["node_modules", "**/*.spec.ts"] // Which files to exclude
+}

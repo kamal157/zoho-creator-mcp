@@ -1,0 +1,22 @@
+{
+  "name": "zoho-creator-mcp-server",
+  "version": "0.1.0",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "@types/node": "^22.15.21",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "dev": "NODE_OPTIONS=\"--loader ts-node/esm\" node src/zc-mcp-server.ts",
+    "start": "node dist/zc-mcp-server.ts",
+    "build": "tsc"
+  }
+}

@@ -1,0 +1,2679 @@
+{
+    "components": {
+        "requestBodies": {
+            "update_records_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "fields": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "example": "[\"Phone_Number\",\"Email\"]"
+                                        },
+                                        "message": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "tasks": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    }
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "example": "{\"Email\":\"jake@zylker.com\",\"Phone_Number\":\"+15876786783\"}"
+                                },
+                                "skip_workflow": {
+                                    "type": "array",
+                                    "version": 2.1,
+                                    "items": {
+                                        "type": "form_workflow|schedules|all"
+                                    },
+                                    "example": "[\"form_workflow\",\"schedules\",\"all\"]"
+                                },
+                                "criteria": {
+                                    "type": "string",
+                                    "version": 2,
+                                    "example": "(Single_Line.contains(\"Single Line of Text\"))"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "create_bulk_read_job_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "query": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "criteria": {
+                                            "type": "string",
+                                            "example": "Number==1"
+                                        },
+                                        "max_records": {
+                                            "format": "int64",
+                                            "maximum": 200000,
+                                            "type": "integer",
+                                            "minimum": 100000,
+                                            "example": 150000
+                                        },
+                                        "fields": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "example": "[\"Number\",\"Single_Line\",\"Radio\",\"Date\",\"Checkbox\"]"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "upload_file_request": {
+                "content": {
+                    "multipart/form-data": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "file": {
+                                    "format": "binary",
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "add_records_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "fields": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "example": "[\"Phone_Number\",\"Email\"]"
+                                        },
+                                        "message": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "tasks": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    }
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "version": 2,
+                                    "items": {
+                                        "type": "object"
+                                    },
+                                    "example": "[{\"Email\":\"jason@zylker.com\",\"Phone_Number\":\"+16103948336\"},{\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+12096173907\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete_record_by_id_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "message": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "tasks": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    }
+                                },
+                                "skip_workflow": {
+                                    "type": "array",
+                                    "version": 2.1,
+                                    "items": {
+                                        "type": "form_workflow|schedules|all"
+                                    },
+                                    "example": "[\"form_workflow\",\"schedules\",\"all\"]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publish_api_add_records_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "fields": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "example": "[\"Phone_Number\",\"Email\"]"
+                                        },
+                                        "message": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "tasks": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    }
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "version": 2,
+                                    "items": {
+                                        "type": "object"
+                                    },
+                                    "example": "[{\"Email\":\"jason@zylker.com\",\"Phone_Number\":\"+16103948336\"},{\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+12096173907\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "update_record_by_id_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "fields": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "string"
+                                            },
+                                            "example": "[\"Phone_Number\",\"Email\"]"
+                                        },
+                                        "message": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "tasks": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    }
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "example": "{\"Email\":\"jake@zylker.com\",\"Phone_Number\":\"+15876786783\"}"
+                                },
+                                "skip_workflow": {
+                                    "type": "array",
+                                    "version": 2.1,
+                                    "items": {
+                                        "type": "form_workflow|schedules|all"
+                                    },
+                                    "example": "[\"form_workflow\",\"schedules\",\"all\"]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete_records_request": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "object",
+                                    "version": 2,
+                                    "properties": {
+                                        "message": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "tasks": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    }
+                                },
+                                "skip_workflow": {
+                                    "type": "array",
+                                    "version": 2.1,
+                                    "items": {
+                                        "type": "form_workflow|schedules|all"
+                                    },
+                                    "example": "[\"form_workflow\",\"schedules\",\"all\"]"
+                                },
+                                "criteria": {
+                                    "type": "string",
+                                    "version": 2,
+                                    "example": "(Single_Line.contains(\"Single Line of Text\"))"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "responses": {
+            "update_records_response": {
+                "description": "{'code': 3960, 'message': 'A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.'}, {'code': 3070, 'message': 'Data validation failure: [ARRAY]'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "data": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "ID": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            },
+                                            "tasks": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "openurl": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "type": {
+                                                                "type": "string"
+                                                            },
+                                                            "url": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"code\":3000,\"data\":{\"Phone_Number\":\"+15876786783\",\"Email\":\"jake@zylker.com\",\"ID\":\"3888833000000114023\"},\"message\":\"Data Updated Successfully!\",\"tasks\":{\"openurl\":{\"type\":\"Same window\",\"url\":\"http://www.zylker.com\"}}},{\"code\":3000,\"data\":{\"Phone_Number\":\"+15876786783\",\"Email\":\"jake@zylker.com\",\"ID\":\"3888833000000114047\"},\"message\":\"Data Updated Successfully!\",\"tasks\":{\"openurl\":{\"type\":\"Same window\",\"url\":\"http://www.zylker.com\"}}}]"
+                                },
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_reports_response": {
+                "description": "{'code': 3930, 'message': 'No reports available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "reports": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "display_name": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"display_name\":\"Map Report\",\"link_name\":\"Map_Report\",\"type\":5},{\"display_name\":\"Spreadsheet Report\",\"link_name\":\"Spreadsheet_Report\",\"type\":6}]"
+                                },
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_forms_response": {
+                "description": "{'code': 3910, 'message': 'No forms available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "forms": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "display_name": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"display_name\":\"Add Order\",\"link_name\":\"Order_Form\",\"type\":1},{\"display_name\":\"Order Stateless Form\",\"link_name\":\"Order_Stateless_Form\",\"type\":2}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_applications_by_workspace_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "applications": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "application_name": {
+                                                "type": "string"
+                                            },
+                                            "date_format": {
+                                                "type": "string"
+                                            },
+                                            "creation_date": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            },
+                                            "category": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "time_zone": {
+                                                "type": "string"
+                                            },
+                                            "created_by": {
+                                                "type": "string"
+                                            },
+                                            "workspace_name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"application_name\":\"Zylker Store\",\"date_format\":\"MMM dd,yyyy\",\"creation_date\":\"20-Apr-2020 16:23:50\",\"link_name\":\"zylker-store\",\"category\":2,\"time_zone\":\"SystemV/PST8\",\"created_by\":\"\",\"workspace_name\":\"megan9\"},{\"application_name\":\"Zylker Self-Service\",\"date_format\":\"MM-dd-yyyy\",\"creation_date\":\"30-Sep-2019 02:21:51\",\"link_name\":\"zylker-self-service\",\"category\":2,\"time_zone\":\"America/Los_Angeles\",\"created_by\":\"\",\"workspace_name\":\"megan9\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete_records_response": {
+                "description": "{'code': 3960, 'message': 'A maximum of 200 records can be processed per request. Include the process_until_limit parameter to process the first 200 records.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "data": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "ID": {
+                                                        "format": "int64",
+                                                        "type": "integer"
+                                                    }
+                                                }
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"code\":3001,\"data\":{\"ID\":\"3000000013011\"},\"error\":[\"Failed to Delete Data.\"]},{\"code\":3000,\"data\":{\"ID\":\"3000000015003\"},\"message\":\"Record Deleted Successfully!\"}]"
+                                },
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publish_api_add_records_response": {
+                "description": "{'code': 3950, 'message': 'A maximum of 200 records can be added per request.'}, {'code': 3070, 'message': 'Data validation failure: [ARRAY]'}, {'code': 3060, 'message': 'Account's record limit has been reached. Please upgrade to add more data.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "data": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "ID": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            },
+                                            "tasks": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "openurl": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "type": {
+                                                                "type": "string"
+                                                            },
+                                                            "url": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"code\":3000,\"data\":{\"Email\":\"jason@zylker.com\",\"Phone_Number\":\"+16103948336\",\"ID\":\"3888833000000121319\"},\"message\":\"Data Added Successfully!\",\"tasks\":{\"openurl\":{\"type\":\"Same window\",\"url\":\"#Report:All_Orders\"}}},{\"code\":3000,\"data\":{\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+12096173907\",\"ID\":\"3888833000000121339\"},\"message\":\"Data Added Successfully!\",\"tasks\":{\"openurl\":{\"type\":\"Same window\",\"url\":\"#Report:All_Orders\"}}}]"
+                                },
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publish_api_get_record_detail_view_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "example": "{\"Multi_Line\":\"Multiples\\nLines\\nof Text\",\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+15704961113\"}"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_applications_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "applications": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "application_name": {
+                                                "type": "string"
+                                            },
+                                            "date_format": {
+                                                "type": "string"
+                                            },
+                                            "creation_date": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            },
+                                            "category": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "time_zone": {
+                                                "type": "string"
+                                            },
+                                            "created_by": {
+                                                "type": "string"
+                                            },
+                                            "workspace_name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"application_name\":\"Zylker Store\",\"date_format\":\"MMM dd,yyyy\",\"creation_date\":\"20-Apr-2020 16:23:50\",\"link_name\":\"zylker-store\",\"category\":1,\"time_zone\":\"SystemV/PST8\",\"created_by\":\"jason18\",\"workspace_name\":\"jason18\"},{\"application_name\":\"Zylker Self-Service\",\"date_format\":\"MM-dd-yyyy\",\"creation_date\":\"30-Sep-2019 02:21:51\",\"link_name\":\"zylker-self-service\",\"category\":2,\"time_zone\":\"America/Los_Angeles\",\"created_by\":\"\",\"workspace_name\":\"megan\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_records_quick_view_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    },
+                                    "example": "[{\"Multi_Line\":\"Multiples\\nLines\\nof Text\",\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+15704961113\"},{\"Multi_Line\":\"Multiples\\nLines\\nof Text\",\"Email\":\"jason@zylker.com\",\"Phone_Number\":\"+15704961113\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_bulk_read_result_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "*/*": {
+                        "schema": {
+                            "format": "binary",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "update_record_by_id_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 3070, 'message': 'Data validation failure: [ARRAY]'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ID": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": "{\"Email\":\"jake@zylker.com\",\"Phone_Number\":\"+15876786783\",\"ID\":\"3888833000000114027\"}"
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Data Updated Successfully"
+                                },
+                                "tasks": {
+                                    "type": "object",
+                                    "properties": {
+                                        "openurl": {
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "example": "Same window"
+                                                },
+                                                "url": {
+                                                    "type": "string",
+                                                    "example": "http://www.zylker.com"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "add_records_response": {
+                "description": "{'code': 3950, 'message': 'A maximum of 200 records can be added per request.'}, {'code': 3070, 'message': 'Data validation failure: [ARRAY]'}, {'code': 3060, 'message': 'Account's record limit has been reached. Please upgrade to add more data.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "result": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "code": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "data": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "ID": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            },
+                                            "message": {
+                                                "type": "string"
+                                            },
+                                            "tasks": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "openurl": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "type": {
+                                                                "type": "string"
+                                                            },
+                                                            "url": {
+                                                                "type": "string"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"code\":3000,\"data\":{\"Email\":\"jason@zylker.com\",\"Phone_Number\":\"+16103948336\",\"ID\":\"3888833000000121319\"},\"message\":\"Data Added Successfully!\",\"tasks\":{\"openurl\":{\"type\":\"Same window\",\"url\":\"#Report:All_Orders\"}}},{\"code\":3000,\"data\":{\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+12096173907\",\"ID\":\"3888833000000121339\"},\"message\":\"Data Added Successfully!\",\"tasks\":{\"openurl\":{\"type\":\"Same window\",\"url\":\"#Report:All_Orders\"}}}]"
+                                },
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_file_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 3710, 'message': 'No field named LINK_NAME found. Please check and try again.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "*/*": {
+                        "schema": {
+                            "format": "binary",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "get_fields_response": {
+                "description": "{'code': 3910, 'message': 'No forms available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "fields": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "unique": {
+                                                "type": "boolean"
+                                            },
+                                            "max_char": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "display_name": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            },
+                                            "type": {
+                                                "format": "int32",
+                                                "type": "integer"
+                                            },
+                                            "mandatory": {
+                                                "type": "boolean"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"unique\":false,\"max_char\":255,\"display_name\":\"Name\",\"link_name\":\"Name\",\"type\":29,\"mandatory\":false},{\"unique\":true,\"max_char\":255,\"display_name\":\"Email\",\"link_name\":\"Email\",\"type\":3,\"mandatory\":false}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_pages_response": {
+                "description": "{'code': 3920, 'message': 'No pages available.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "pages": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "display_name": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"display_name\":\"Assets Dashboard\",\"link_name\":\"Asset_Dashboard\"},{\"display_name\":\"Home\",\"link_name\":\"Home_Page\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_the_status_of_the_bulk_read_job_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "details": {
+                                    "type": "object",
+                                    "properties": {
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "count": {
+                                                    "format": "int64",
+                                                    "type": "integer",
+                                                    "example": 16
+                                                },
+                                                "download_url": {
+                                                    "type": "string",
+                                                    "example": "/creator/{version}/bulk/jason_18/one/report/b_Report/read/2000000010003/result"
+                                                }
+                                            }
+                                        },
+                                        "created_time": {
+                                            "type": "string",
+                                            "example": "03-Sep-2021 14:55:46"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "example": 2000000018003
+                                        },
+                                        "operation": {
+                                            "type": "string",
+                                            "example": "read"
+                                        },
+                                        "created_by": {
+                                            "type": "string",
+                                            "example": "jason18"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "Completed"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "upload_file_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 3710, 'message': 'No field named LINK_NAME found. Please check and try again.'}, {'code': 3830, 'message': 'You do not have permission to transfer files to/from the field FIELD_NAME. Please check with the application admin.'}, {'code': 3750, 'message': 'LINK_NAME is not a file type field. Please check and try again.'}, {'code': 3660, 'message': 'No file found in the request. Please include a file and try again.'}, {'code': 3630, 'message': 'Input file exceeds the 50 MB limit. Please upload a smaller file.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "filename": {
+                                            "type": "string",
+                                            "example": "Screenshot 2022-10-19 at 20.03.02.png"
+                                        },
+                                        "filepath": {
+                                            "type": "string",
+                                            "example": "1668060825937_Screenshot_2022-10-19_at_20.03.02.png"
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "File Uploaded Successfully"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_sections_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "sections": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "components": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "page_type": {
+                                                            "format": "int32",
+                                                            "type": "integer"
+                                                        },
+                                                        "type": {
+                                                            "format": "int32",
+                                                            "type": "integer"
+                                                        },
+                                                        "link_name": {
+                                                            "type": "string"
+                                                        },
+                                                        "display_name": {
+                                                            "type": "string"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "display_name": {
+                                                "type": "string"
+                                            },
+                                            "link_name": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "example": "[{\"components\":[{\"page_type\":2,\"type\":3,\"link_name\":\"Dashboard\",\"display_name\":\"Dashboard\"}],\"display_name\":\"Dashboard\",\"link_name\":\"Dashboard\"},{\"components\":[{\"view_type\":1,\"type\":2,\"link_name\":\"All_Order_Line_Items\",\"display_name\":\"All Order Line Items\"},{\"view_type\":1,\"type\":2,\"link_name\":\"All_Orders\",\"display_name\":\"All Orders\"}],\"display_name\":\"Orders\",\"link_name\":\"Orders1\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "download_file_from_subform_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 3710, 'message': 'No field named LINK_NAME found. Please check and try again.'}, {'code': 3780, 'message': 'No subform named LINK_NAME found. Please check and try again.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "*/*": {
+                        "schema": {
+                            "format": "binary",
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "create_bulk_read_job_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "details": {
+                                    "type": "object",
+                                    "properties": {
+                                        "created_time": {
+                                            "type": "string",
+                                            "example": "03-Sep-2021 14:55:46"
+                                        },
+                                        "id": {
+                                            "type": "string",
+                                            "example": 2000000018003
+                                        },
+                                        "operation": {
+                                            "type": "string",
+                                            "example": "read"
+                                        },
+                                        "created_by": {
+                                            "type": "string",
+                                            "example": "jason18"
+                                        },
+                                        "status": {
+                                            "type": "string",
+                                            "example": "In-progress"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "get_record_detail_view_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "example": "{\"Multi_Line\":\"Multiples\\nLines\\nof Text\",\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+15704961113\"}"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete_record_by_id_response": {
+                "description": "{'code': 3190, 'message': 'No record with ID RECORD_ID found.'}, {'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "object",
+                                    "properties": {
+                                        "ID": {
+                                            "format": "int64",
+                                            "type": "integer",
+                                            "example": 3888833000000114027
+                                        }
+                                    }
+                                },
+                                "message": {
+                                    "type": "string",
+                                    "example": "Record Deleted Successfully"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "publish_api_get_records_quick_view_response": {
+                "description": "{'code': 4000, 'message': 'Account's Developer API limit has been reached. Please upgrade to execute more REST API calls.'}",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "code": {
+                                    "format": "int32",
+                                    "type": "integer",
+                                    "example": 3000
+                                },
+                                "data": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object"
+                                    },
+                                    "example": "[{\"Multi_Line\":\"Multiples\\nLines\\nof Text\",\"Email\":\"p.boyle@zylker.com\",\"Phone_Number\":\"+15704961113\"},{\"Multi_Line\":\"Multiples\\nLines\\nof Text\",\"Email\":\"jason@zylker.com\",\"Phone_Number\":\"+15704961113\"}]"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "oauth2": {
+                "flows": {
+                    "authorizationCode": {
+                        "tokenUrl": "https://accounts.zoho.in/oauth/v2/token",
+                        "authorizationUrl": "https://accounts.zoho.in/oauth/v2/auth?access_type=offline",
+                        "scopes": {
+                            "ZohoCreator.report.CREATE": "Upload file to a record in a report.",
+                            "ZohoCreator.bulk.READ": "Check the status or download the result of the bulk read job.",
+                            "ZohoCreator.bulk.CREATE": "Create a bulk read job for a report.",
+                            "ZohoCreator.dashboard.READ": "Get applications.",
+                            "ZohoCreator.report.UPDATE": "Update records in a report.",
+                            "ZohoCreator.meta.application.READ": "Get forms, reports in an application.",
+                            "ZohoCreator.report.READ": "Get records and download file in a report.",
+                            "ZohoCreator.form.CREATE": "Add records to a form.",
+                            "ZohoCreator.report.DELETE": "Delete records in a report.",
+                            "ZohoCreator.meta.form.READ": "Get list of fields in a form."
+                        }
+                    }
+                },
+                "type": "oauth2"
+            }
+        },
+        "parameters": {
+            "field_link_name": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "field_link_name",
+                "version": 2,
+                "required": true
+            },
+            "report_link_name": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "report_link_name",
+                "version": 2,
+                "required": true
+            },
+            "form_link_name": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "form_link_name",
+                "version": 2,
+                "required": true
+            },
+            "criteria": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "query",
+                "name": "criteria",
+                "version": 2,
+                "required": false
+            },
+            "record_cursor": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "header",
+                "name": "record_cursor",
+                "version": 2.1,
+                "required": false
+            },
+            "app_link_name": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "app_link_name",
+                "version": 2,
+                "required": true
+            },
+            "version": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "version",
+                "version": 2,
+                "required": true
+            },
+            "record_ID": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "record_ID",
+                "version": 2,
+                "required": true
+            },
+            "privatelink": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "query",
+                "name": "privatelink",
+                "version": 2,
+                "required": true
+            },
+            "process_until_limit": {
+                "schema": {
+                    "type": "boolean"
+                },
+                "in": "query",
+                "name": "process_until_limit",
+                "version": 2,
+                "required": false
+            },
+            "skip_workflow": {
+                "schema": {
+                    "type": "array"
+                },
+                "in": "query",
+                "name": "skip_workflow",
+                "version": 2.1,
+                "required": false
+            },
+            "subform_record_ID": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "subform_record_ID",
+                "version": 2,
+                "required": true
+            },
+            "field_config": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "query",
+                "name": "field_config",
+                "version": 2.1,
+                "required": false
+            },
+            "account_owner_name": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "account_owner_name",
+                "version": 2,
+                "required": true
+            },
+            "job_ID": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "job_ID",
+                "version": 2,
+                "required": true
+            },
+            "limit": {
+                "schema": {
+                    "format": "int32",
+                    "maximum": 200,
+                    "type": "integer"
+                },
+                "in": "query",
+                "name": "limit",
+                "version": 2,
+                "required": false
+            },
+            "max_records": {
+                "schema": {
+                    "format": "int32",
+                    "maximum": 1000,
+                    "type": "integer"
+                },
+                "in": "query",
+                "name": "max_records",
+                "version": 2.1,
+                "required": false
+            },
+            "subform_link_name": {
+                "schema": {
+                    "type": "string"
+                },
+                "in": "path",
+                "name": "subform_link_name",
+                "version": 2,
+                "required": true
+            },
+            "from": {
+                "schema": {
+                    "format": "int32",
+                    "type": "integer",
+                    "minimum": 1
+                },
+                "in": "query",
+                "name": "from",
+                "version": 2,
+                "required": false
+            },
+            "fields": {
+                "schema": {
+                    "type": "array"
+                },
+                "in": "query",
+                "name": "fields",
+                "version": 2.1,
+                "required": false
+            }
+        }
+    },
+    "servers": [
+        {
+            "description": "US Data Center API Server",
+            "url": "https://zohoapis.com/"
+        },
+        {
+            "description": "IN Data Center API Server",
+            "url": "https://zohoapis.in/"
+        },
+        {
+            "description": "EU Data Center API Server",
+            "url": "https://zohoapis.eu/"
+        },
+        {
+            "description": "JP Data Center API Server",
+            "url": "https://zohoapis.jp/"
+        },
+        {
+            "description": "SA Data Center API Server",
+            "url": "https://zohoapis.sa/"
+        },
+        {
+            "description": "CA Data Center API Server",
+            "url": "https://zohoapis.ca/"
+        },
+        {
+            "description": "AU Data Center API Server",
+            "url": "https://zohoapis.com.au/"
+        },
+        {
+            "description": "CN Data Center API Server",
+            "url": "https://zohoapis.com.cn/"
+        }
+    ],
+    "openapi": "3.0.3",
+    "paths": {
+        "/creator/v2.1/meta/{account_owner_name}/{app_link_name}/sections": {
+            "get": {
+                "summary": "Get Sections",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.meta.application.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the information about the sections and underlying components\u2014forms, reports, and pages\u2014defined for a Zoho Creator application's web form factor.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_sections_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/meta/{account_owner_name}/{app_link_name}/forms": {
+            "get": {
+                "summary": "Get Forms",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.meta.application.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the meta information of all the forms present in a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_forms_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2893, 'message': 'No form named FORM_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read": {
+            "post": {
+                "summary": "Create Bulk Read job",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.bulk.CREATE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/create_bulk_read_job_request"
+                },
+                "description": "To create a bulk read job to export records.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/create_bulk_read_job_response"
+                    },
+                    "400": {
+                        "description": "{'code': 3020, 'message': 'API request's body is either missing or incomplete.'}"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    }
+                ],
+                "tags": [
+                    "Bulk Read APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/meta/{account_owner_name}/{app_link_name}/reports": {
+            "get": {
+                "summary": "Get Reports",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.meta.application.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the meta information of all the reports present in a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_reports_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/data/{account_owner_name}/{app_link_name}/report/{report_link_name}": {
+            "patch": {
+                "summary": "Update Records",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.UPDATE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/update_records_request"
+                },
+                "description": "This API updates the records displayed in a report of a Zoho Creator application. A maximum of 200 records can be updated per request. Updating records is subject to data validation.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/update_records_response"
+                    },
+                    "400": {
+                        "description": "{'code': 3020, 'message': 'API request's body is either missing or incomplete.'}"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2897, 'message': 'Permission denied to update record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 3100, 'message': 'No records found for the given criteria.'}, {'code': 1000, 'message': 'A mandatory parameter - 'criteria' is either absent or has been used twice. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/process_until_limit"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            },
+            "get": {
+                "summary": "Get Records Quick View",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the records displayed by a report of a Zoho Creator application. Its response will contain the data from the fields displayed in the report's quick view. A maximum of 200 records can be fetched per request.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_records_quick_view_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2898, 'message': 'Permission denied to view record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/criteria"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_config"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_records"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_cursor"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            },
+            "delete": {
+                "summary": "Delete Records",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.DELETE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/delete_records_request"
+                },
+                "description": "This API deletes the records displayed by a report of your Zoho Creator application. A maximum of 200 records can be deleted per request. The delete request is subject to custom validations configured for the target form.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/delete_records_response"
+                    },
+                    "400": {
+                        "description": "{'code': 3020, 'message': 'API request's body is either missing or incomplete.'}"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2896, 'message': 'Permission denied to delete record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 3100, 'message': 'No records found for the given criteria.'}, {'code': 1000, 'message': 'A mandatory parameter - 'criteria' is either absent or has been used twice. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/process_until_limit"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/publish/{account_owner_name}/{app_link_name}/form/{form_link_name}": {
+            "post": {
+                "summary": "Publish API Add Records",
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/publish_api_add_records_request"
+                },
+                "description": "This API adds one or more records to a form in your Zoho Creator application. Subject to validations, each JSON object in the input file will be added as a record. A maximum of 200 records can be created per request.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/publish_api_add_records_response"
+                    },
+                    "400": {
+                        "description": "{'code': 3020, 'message': 'API request's body is either missing or incomplete.'}"
+                    },
+                    "401": {
+                        "description": "{'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2899, 'message': 'Permission denied to add record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}, {'code': 2965, 'message': 'No more entries allowed as per the form validation.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2893, 'message': 'No form named FORM_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/form_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/privatelink"
+                    }
+                ],
+                "tags": [
+                    "Publish APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}/{field_link_name}/download": {
+            "get": {
+                "summary": "Download File",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.READ"
+                        ]
+                    }
+                ],
+                "description": "This API downloads a file from a file upload, image, audio, video, or signature field of a specific record, which is present in a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/download_file_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_link_name"
+                    }
+                ],
+                "tags": [
+                    "File APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read/{job_ID}": {
+            "get": {
+                "summary": "Get the Status of the Bulk Read Job",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.bulk.READ"
+                        ]
+                    }
+                ],
+                "description": "To get the details of a bulk read job performed previously.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_the_status_of_the_bulk_read_job_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/job_ID"
+                    }
+                ],
+                "tags": [
+                    "Bulk Read APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/meta/{account_owner_name}/{app_link_name}/pages": {
+            "get": {
+                "summary": "Get Pages",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.meta.application.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the meta information of all the pages present in a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_pages_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 1090, 'message': 'No component named COMPONENT_NAME found in this application. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}/{subform_link_name}/{field_link_name}/{subform_record_ID}/download": {
+            "get": {
+                "summary": "Download File from Subform",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.READ"
+                        ]
+                    }
+                ],
+                "description": "This API downloads a file from a file upload, image, audio, video, or signature field of a specific subform record of a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/download_file_from_subform_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subform_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/subform_record_ID"
+                    }
+                ],
+                "tags": [
+                    "File APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/publish/{account_owner_name}/{app_link_name}/report/{report_link_name}": {
+            "get": {
+                "summary": "Publish API Get Records Quick View",
+                "description": "This API fetches the records displayed by a report of a Zoho Creator application. Its response will contain the data from the fields displayed in the report's quick view. A maximum of 200 records can be fetched per request.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/publish_api_get_records_quick_view_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2898, 'message': 'Permission denied to view record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/privatelink"
+                    },
+                    {
+                        "$ref": "#/components/parameters/from"
+                    },
+                    {
+                        "$ref": "#/components/parameters/limit"
+                    },
+                    {
+                        "$ref": "#/components/parameters/criteria"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_config"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    },
+                    {
+                        "$ref": "#/components/parameters/max_records"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_cursor"
+                    }
+                ],
+                "tags": [
+                    "Publish APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/meta/{account_owner_name}/applications": {
+            "get": {
+                "summary": "Get Applications by Workspace",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.dashboard.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the meta information of the applications hosted in a given workspace that you have access to.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_applications_by_workspace_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/meta/applications": {
+            "get": {
+                "summary": "Get Applications",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.dashboard.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the meta information of all the applications that you have access to.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_applications_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/publish/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}": {
+            "get": {
+                "summary": "Publish API Get Record Detail View",
+                "description": "This API fetches the data displayed in the detail view of a record, which is identified by the ID value passed. This API will not fetch the records displayed in the related data blocks of the detail view.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/publish_api_get_record_detail_view_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2898, 'message': 'Permission denied to view record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    },
+                    {
+                        "$ref": "#/components/parameters/privatelink"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_config"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    }
+                ],
+                "tags": [
+                    "Publish APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/data/{account_owner_name}/{app_link_name}/form/{form_link_name}": {
+            "post": {
+                "summary": "Add Records",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.form.CREATE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/add_records_request"
+                },
+                "description": "This API adds one or more records to a form in your Zoho Creator application. Subject to validations, each JSON object in the input file will be added as a record. A maximum of 200 records can be created per request.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/add_records_response"
+                    },
+                    "400": {
+                        "description": "{'code': 3020, 'message': 'API request's body is either missing or incomplete.'}"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2899, 'message': 'Permission denied to add record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}, {'code': 2965, 'message': 'No more entries allowed as per the form validation.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2893, 'message': 'No form named FORM_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/form_link_name"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}": {
+            "patch": {
+                "summary": "Update Record by ID",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.UPDATE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/update_record_by_id_request"
+                },
+                "description": "This API updates a specific record displayed in a report of a Zoho Creator application. The record is identified by its ID value. The update operation is subject to data validations configured for the corresponding form.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/update_record_by_id_response"
+                    },
+                    "400": {
+                        "description": "{'code': 3020, 'message': 'API request's body is either missing or incomplete.'}"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2897, 'message': 'Permission denied to update record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            },
+            "get": {
+                "summary": "Get Record Detail View",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the data displayed in the detail view of a record, which is identified by the ID value passed. This API will not fetch the records displayed in the related data blocks of the detail view.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_record_detail_view_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2898, 'message': 'Permission denied to view record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_config"
+                    },
+                    {
+                        "$ref": "#/components/parameters/fields"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            },
+            "delete": {
+                "summary": "Delete Record by ID",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.DELETE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/delete_record_by_id_request"
+                },
+                "description": "This API deletes a specific record, identified by its ID value, which is displayed in a report of your Zoho Creator application. The delete request is subject to custom validations configured for the target form.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/delete_record_by_id_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 2896, 'message': 'Permission denied to delete record(s).'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    }
+                ],
+                "tags": [
+                    "Data APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/meta/{account_owner_name}/{app_link_name}/form/{form_link_name}/fields": {
+            "get": {
+                "summary": "Get Fields",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.meta.form.READ"
+                        ]
+                    }
+                ],
+                "description": "This API fetches the meta information of all the fields present in a form of a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/get_fields_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2893, 'message': 'No form named FORM_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/form_link_name"
+                    }
+                ],
+                "tags": [
+                    "Meta APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/bulk/{account_owner_name}/{app_link_name}/report/{report_link_name}/read/{job_ID}/result": {
+            "get": {
+                "summary": "Download Bulk Read Result",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.bulk.READ"
+                        ]
+                    }
+                ],
+                "description": "To download the bulk read job as a CSV file. The file needs to be in .zip format. Extract it to get the CSV file.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/download_bulk_read_result_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/job_ID"
+                    }
+                ],
+                "tags": [
+                    "Bulk Read APIs"
+                ]
+            }
+        },
+        "/creator/v2.1/data/{account_owner_name}/{app_link_name}/report/{report_link_name}/{record_ID}/{field_link_name}/upload": {
+            "post": {
+                "summary": "Upload File",
+                "security": [
+                    {
+                        "oauth2": [
+                            "ZohoCreator.report.CREATE"
+                        ]
+                    }
+                ],
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/upload_file_request"
+                },
+                "description": "This API updates a file to a file upload, image, audio, video, or signature field of a specific record, which is present in a Zoho Creator application.",
+                "responses": {
+                    "200": {
+                        "$ref": "#/components/responses/upload_file_response"
+                    },
+                    "401": {
+                        "description": "{'code': 1030, 'message': 'Authorization Failure. The access token is either invalid or has expired.'}, {'code': 2945, 'message': 'This is an invalid oauthscope. Please regenerate the oauthtoken corresponding to the API with proper oauthscope.'}, {'code': 1000, 'message': 'IAM Error'}"
+                    },
+                    "403": {
+                        "description": "{'code': 2933, 'message': 'You do not have permission to access this application.'}, {'code': 1080, 'message': 'API calls cannot be made to disabled applications. Please check with the application admin.'}"
+                    },
+                    "404": {
+                        "description": "{'code': 1040, 'message': 'No account owner named OWNER_NAME found.'}, {'code': 2892, 'message': 'No application named APPLICATION_NAME found. Please check and try again.'}, {'code': 2894, 'message': 'No report named REPORT_NAME found. Please check and try again.'}, {'code': 1000, 'message': 'Invalid API URL format.'}, {'code': 2930, 'message': 'Error Occurred. We are sorry for the inconvenience.'}"
+                    },
+                    "405": {
+                        "description": "{'code': 1020, 'message': 'METHOD is not a valid method for this request.'}"
+                    },
+                    "429": {
+                        "description": "{'code': 2955, 'message': 'You have reached your API call limit for a minute. Please try again after sometime.'}"
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/version"
+                    },
+                    {
+                        "$ref": "#/components/parameters/account_owner_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/app_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/report_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/record_ID"
+                    },
+                    {
+                        "$ref": "#/components/parameters/field_link_name"
+                    },
+                    {
+                        "$ref": "#/components/parameters/skip_workflow"
+                    }
+                ],
+                "tags": [
+                    "File APIs"
+                ]
+            }
+        }
+    },
+    "externalDocs": {
+        "description": "Zoho Creator API v2 Documentation",
+        "url": "https://www.zoho.com/creator/help/api/v2/"
+    },
+    "info": {
+        "contact": {
+            "name": "Zoho Creator Support",
+            "url": "https://www.zoho.com/creator/help/",
+            "email": "support@zohocreator.com"
+        },
+        "description": "Zoho Creator provides RESTful APIs that allow you to securely interface with your Zoho Creator applications and perform a variety of tasks.",
+        "title": "Zoho Creator API v2 conforming OpenAPI Specification",
+        "version": "2.0"
+    },
+    "tags": [
+        {
+            "name": "Data APIs",
+            "description": "APIs to add, update, delete or get records in a form/report"
+        },
+        {
+            "name": "Publish APIs",
+            "description": "APIs to add or get records in a published form/report"
+        },
+        {
+            "name": "File APIs",
+            "description": "APIs to upload or download files in a report"
+        },
+        {
+            "name": "Meta APIs",
+            "description": "Get list of applications, forms, reports and fields"
+        },
+        {
+            "name": "Bulk Read APIs",
+            "description": "APIs to fetch a large set of data in a report"
+        }
+    ]
+}
